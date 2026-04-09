@@ -76,12 +76,24 @@ public class TypingRace
     public void startRace()
     {
         boolean finished = false;
+        double startAcc1 = 0.0;
+        double startAcc2 = 0.0;
+        double startAcc3 = 0.0;
 
         // Reset all typists to the start of the passage
         // (Ty was in a hurry here)
-        if(seat1Typist != null){seat1Typist.resetToStart();}
-        if(seat2Typist != null){seat2Typist.resetToStart();}
-        if(seat3Typist != null){seat3Typist.resetToStart();}
+        if(seat1Typist != null){
+            seat1Typist.resetToStart();
+            startAcc1 = seat1Typist.getAccuracy();
+        }
+        if(seat2Typist != null){
+            seat2Typist.resetToStart();
+            startAcc2 = seat2Typist.getAccuracy();
+        }
+        if(seat3Typist != null){
+            seat3Typist.resetToStart();
+            startAcc3 = seat3Typist.getAccuracy();
+        }
 
         while (!finished)
         {
@@ -106,6 +118,26 @@ public class TypingRace
         }
 
         // TODO (Task 2a): Print the winner's name here
+
+        Typist winner = null;
+        double oldAcc = 0.0;
+        
+        if(raceFinishedBy(seat1Typist)){
+            winner = seat1Typist;
+            oldAcc = startAcc1;
+
+        }else if(raceFinishedBy(seat2Typist)){
+            winner = seat2Typist;
+            oldAcc = startAcc2;
+
+        }else if(raceFinishedBy(seat3Typist)){
+            winner = seat3Typist;
+            oldAcc = startAcc3;
+        }
+
+        if(winner != null){System.out.println("And the winner is... " + winner.getName());}
+        System.out.println("Final accuracy: " + (winner.getAccuracy()) + " (improved from " + oldAcc + ")");
+        
     }
 
     /**
