@@ -79,8 +79,9 @@ public class TypingRace
 
         // Reset all typists to the start of the passage
         // (Ty was in a hurry here)
-        seat1Typist.resetToStart();
-        seat2Typist.resetToStart();
+        if(seat1Typist != null){seat1Typist.resetToStart();}
+        if(seat2Typist != null){seat2Typist.resetToStart();}
+        if(seat3Typist != null){seat3Typist.resetToStart();}
 
         while (!finished)
         {
