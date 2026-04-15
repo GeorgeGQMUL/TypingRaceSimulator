@@ -58,6 +58,19 @@ public class RaceConfig {
     }
 
     /**
+     * Sets the amount of people playing the game
+     * Must be between 2 - 6
+     * 
+     * @param seatCount integer amount of people playing the game
+     */
+    private void setSeatCount(int seatCount){
+        if (seatCount < 2 || seatCount > 6) {
+            throw new IllegalArgumentException("Seat count must be 2–6");
+        }
+        this.seatCount = seatCount;
+    }
+
+    /**
      * Set method for all of the modifiications
      * 
      * @param isCaffieneMod
@@ -70,8 +83,10 @@ public class RaceConfig {
         this.isNightMod = isNightMod;
     }
 
-    //Accessors 
 
+
+    //Accessors 
+    //
     private boolean getCaffiene(){
         return this.isCaffieneMod;
     }
