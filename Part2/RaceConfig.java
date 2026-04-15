@@ -13,11 +13,12 @@ public class RaceConfig {
         //Night Shift
 
     private int seatCount;
-    private Boolean caffieneMod;
-    private Boolean autocorrectMod;
-    private Boolean nightMod;
-
-    List<String> shortPassages = new ArrayList<>(Arrays.asList(
+    private Boolean isCaffieneMod;
+    private Boolean isAutocorrectMod;
+    private Boolean isNightMod;
+    
+    //Passages
+    private List<String> shortPassages = new ArrayList<>(Arrays.asList(
 
     "A focused typist keeps steady rhythm, correcting mistakes quickly while racing forward, balancing speed and accuracy to reach the end before exhaustion sets in.",
 
@@ -29,7 +30,7 @@ public class RaceConfig {
 
     ));
 
-    List<String> mediumPassages = new ArrayList<>(Arrays.asList(
+    private List<String> mediumPassages = new ArrayList<>(Arrays.asList(
     
     "A steady typist builds rhythm over time, carefully balancing speed and accuracy while avoiding unnecessary mistakes. As pressure increases, maintaining focus becomes more difficult, yet those who stay composed and consistent often gain the advantage, gradually pulling ahead of competitors who rush and lose control under stress.",
 
@@ -41,7 +42,7 @@ public class RaceConfig {
 
     ));
 
-    List<String> longPassages = new ArrayList<>(Arrays.asList(
+    private List<String> longPassages = new ArrayList<>(Arrays.asList(
 
     "A skilled typist maintains a steady rhythm while carefully balancing speed and accuracy, knowing that a single mistake can disrupt momentum. As the race progresses, fatigue begins to set in, testing focus and consistency. Those who remain calm under pressure and recover quickly from errors steadily move ahead, while others struggle to regain their pace after slipping behind during critical moments of the competition.",
 
@@ -52,10 +53,17 @@ public class RaceConfig {
     "As the race nears its final stretch, endurance and mental discipline become increasingly important. Typists who can maintain their composure, minimise mistakes, and sustain their typing rhythm will often outperform those who started quickly but lacked consistency. In these final moments, the ability to stay focused and avoid panic can determine who crosses the finish line first and secures victory."
 
     ));
+//Passages
+
+    public String getRandomPassage(String size){
+        
+    }
 
 
 
 
 
-    
+
+
+
 }
