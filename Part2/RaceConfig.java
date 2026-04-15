@@ -1,4 +1,10 @@
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
 
 public class RaceConfig {
     
@@ -19,11 +25,25 @@ public class RaceConfig {
     private List<String> shortPassages;
     private List<String> mediumPassages;
     private List<String> longPassages;
+    private List<String> customPassages = loadFile("custom.txt");
 
-//Passages
+    //Constructor method
+    public RaceConfig(int seatCount, boolean isCaffieneMod, boolean isAutocorrectMod, boolean isNightMod){
+        this.seatCount = seatCount;
+        this.isCaffieneMod = isCaffieneMod;
+        this.isAutocorrectMod = isAutocorrectMod;
+        this.isNightMod = isNightMod;
 
-    public String getRandomPassage(int size){
-        return null;
+        shortPassages = loadFile("short.txt");
+        mediumPassages = loadFile("medium.txt");
+        longPassages = loadFile("long.txt");
+        customPassages = loadFile("custom.txt");
+
+    }
+
+    private loadFile(File f) throws IOException{
+        Path path = Paths.get(filename);
+        return Files.readAllLines(path);
     }
 
 
