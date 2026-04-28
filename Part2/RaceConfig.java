@@ -1,7 +1,4 @@
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
@@ -12,10 +9,11 @@ public class RaceConfig {
     //Seat Count (2-6)
     //Dificulty modifiers
         //Autocorrect on/off
-        //Caffiene Mode
+        //Caffeine Mode
         //Night Shift
 
     private int seatCount;
+
     private Boolean isCaffieneMod;
     private Boolean isAutocorrectMod;
     private Boolean isNightMod;
@@ -44,11 +42,13 @@ public class RaceConfig {
         this.isAutocorrectMod = isAutocorrectMod;
         this.isNightMod = isNightMod;
 
+        PassageIO io = new PassageIO();
+
         try {
-            shortPassages = loadFile("short.txt");
-            mediumPassages = loadFile("medium.txt");
-            longPassages = loadFile("long.txt");
-            customPassages = loadFile("custom.txt");
+            shortPassages = io.loadFile("short.txt");
+            mediumPassages = io.loadFile("medium.txt");
+            longPassages = io.loadFile("long.txt");
+            customPassages = io.loadFile("custom.txt");
 
         }catch (IOException e) {
             System.out.println("Encountered error when trying to initialise a passage" + e.getMessage());
@@ -63,7 +63,8 @@ public class RaceConfig {
      * 
      * @param seatCount integer amount of people playing the game
      */
-    private void setSeatCount(int seatCount){
+    @SuppressWarnings("unused")
+    public void setSeatCount(int seatCount){
         if (seatCount < 2 || seatCount > 6) {
             throw new IllegalArgumentException("Seat count must be 2–6");
         }
@@ -77,7 +78,8 @@ public class RaceConfig {
      * @param isAutocorrectMod
      * @param isNightMod
     */
-    private void setModifiers(boolean isCaffieneMod, boolean isAutocorrectMod, boolean isNightMod){
+    @SuppressWarnings("unused")
+    public void setModifiers(boolean isCaffieneMod, boolean isAutocorrectMod, boolean isNightMod){
         this.isCaffieneMod = isCaffieneMod;
         this.isAutocorrectMod = isAutocorrectMod;
         this.isNightMod = isNightMod;
@@ -87,48 +89,19 @@ public class RaceConfig {
 
     //Accessors 
     //
-    private boolean getCaffiene(){
+    public boolean getCaffiene(){
         return this.isCaffieneMod;
     }
 
-    private boolean getAutocorrect(){
+    public boolean getAutocorrect(){
         return this.isAutocorrectMod;
     }
 
-    private boolean getNight(){
+    public boolean getNight(){
         return this.isNightMod;
     }
+    
 
-    /**
-     * loadFile
-     * 
-     * This reads a given file and returns each line as an item in a list
-     * 
-     * @param file must be the name for a file as a string
-     * @return List<String> returns each line as a single string in a List
-     * @throws IOException
-    */
-    private List<String> loadFile(String file) throws IOException{
-        Path path = Paths.get(file);
-        return Files.readAllLines(path);
-    }
-
-    /**
-     * Writes to the custom passage text file with user entered passages
-     * Validation must be done beforehand
-     * 
-     * @param passage string passage typed from the user
-     * @throws IOException
-    */
-    private void writeCustomPassage(String passage) throws IOException{
-        
-        try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("custom.txt", true))){
-            bufferedWriter.write(passage);
-            bufferedWriter.newLine();
-        }catch (IOException e){
-            System.out.println("Error occurred when writing file" + e.getMessage());
-        }
-    }
 
     /**
      * This method gets a random passage based on the 4 types of passages
@@ -137,7 +110,7 @@ public class RaceConfig {
      * 0-2 (small to large) 3 (custom passage)
      * @return a random passage from one of the text files or "not a passage size" if it fails
     */
-    private String getRandomPassage(int size){
+    public String getRandomPassage(int size){
         
         Random random = new Random();
 
@@ -155,5 +128,4 @@ public class RaceConfig {
                 return "Not a passage size";
         }
     }
-
 }
