@@ -1,7 +1,11 @@
 <<<<<<< HEAD:Part2/RaceConfig.java
+<<<<<<< HEAD:Part2/RaceConfig.java
 
 =======
 
+>>>>>>> fe8ecebb43e263606e7bef7912d5889edb53ea8b:Part2/src/config/RaceConfig.java
+=======
+package src.config;
 >>>>>>> fe8ecebb43e263606e7bef7912d5889edb53ea8b:Part2/src/config/RaceConfig.java
 import java.io.*;
 import java.util.List;
