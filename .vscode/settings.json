@@ -1,8 +1,12 @@
 {
+<<<<<<< HEAD
     "java.debug.settings.onBuildFailureProceed": true,
     "java.project.sourcePaths": [
         "src/main/gui",
         "Part1",
         "Part2"
     ]
+=======
+    "java.debug.settings.onBuildFailureProceed": true
+>>>>>>> fe8ecebb43e263606e7bef7912d5889edb53ea8b
 }

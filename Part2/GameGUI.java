@@ -1,3 +1,4 @@
-public class GameGUI {
-    
+import javax.swing.*;
+
+public class GameGUI extends JFrame {
 }

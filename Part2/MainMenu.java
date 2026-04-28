@@ -117,6 +117,8 @@ public class MainMenu extends JFrame {
 
     private void onButtonPressed(int value) {
         System.out.println("Mode selected: " + value);
+        GameGUI.main(null);
+        dispose();
     }
 
     public static void main(String[] args) {
